@@ -10,7 +10,11 @@ interface IProps{
 export default function Buscador({busca, setBusca}: IProps) {
   return (
     <div className={styles.buscador}>
-        <input value={busca} onChange={(evento) => setBusca(evento.target.value)} />
+        <input 
+          value={busca} 
+          onChange={(evento) => setBusca(evento.target.value)}
+          placeholder='Buscar' 
+        />
         <CgSearch 
             size={30}
             color="#4c4d5e"
