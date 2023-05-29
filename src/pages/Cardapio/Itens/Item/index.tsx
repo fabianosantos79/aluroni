@@ -1,14 +1,14 @@
 import styles from './Item.module.scss';
-import cardapio from 'data/cardapio.json';
 import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
+import { Prato } from 'types/Prato';
 
-type Props = typeof cardapio[0];
-
-export default function Item(props: Props) {
-  const {title, description, category, size, serving, price, photo} = props;
+export default function Item(props: Prato) {
+  const {id, title, description, category, size, serving, price, photo} = props;
+  const navigate = useNavigate()
 
   return (
-    <div className={styles.item}>
+    <div onClick={() => navigate(`/prato/${id}`)} className={styles.item}>
       <div className={styles.item__imagem}>
         <img src={photo} alt={title} />
       </div>
